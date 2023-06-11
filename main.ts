@@ -7,9 +7,9 @@ function Forward() {
 
 function TurnLeft() {
     PCA9685.setLedDutyCycle(PCA9685.LEDNum.LED1, 0, 67)
-    PCA9685.setLedDutyCycle(PCA9685.LEDNum.LED2, 55, 67)
+    PCA9685.setLedDutyCycle(PCA9685.LEDNum.LED2, 20, 67)
     PCA9685.setLedDutyCycle(PCA9685.LEDNum.LED3, 0, 67)
-    PCA9685.setLedDutyCycle(PCA9685.LEDNum.LED4, 20, 67)
+    PCA9685.setLedDutyCycle(PCA9685.LEDNum.LED4, 55, 67)
 }
 
 function Back() {
@@ -21,9 +21,9 @@ function Back() {
 
 function TurnRight() {
     PCA9685.setLedDutyCycle(PCA9685.LEDNum.LED1, 0, 67)
-    PCA9685.setLedDutyCycle(PCA9685.LEDNum.LED2, 20, 67)
+    PCA9685.setLedDutyCycle(PCA9685.LEDNum.LED2, 55, 67)
     PCA9685.setLedDutyCycle(PCA9685.LEDNum.LED3, 0, 67)
-    PCA9685.setLedDutyCycle(PCA9685.LEDNum.LED4, 55, 67)
+    PCA9685.setLedDutyCycle(PCA9685.LEDNum.LED4, 20, 67)
 }
 
 function Stop() {
@@ -36,6 +36,19 @@ function Stop() {
 let strip = neopixel.create(DigitalPin.P5, 18, NeoPixelMode.RGB)
 strip.clear()
 PCA9685.init(67, 0)
+Forward()
+basic.pause(500)
+Stop()
+basic.pause(500)
+TurnLeft()
+basic.pause(500)
+Forward()
+basic.pause(500)
+Stop()
+basic.pause(500)
+Back()
+basic.pause(500)
+Stop()
 basic.forever(function on_forever() {
     strip.showColor(neopixel.colors(NeoPixelColors.Red))
     basic.pause(500)
@@ -48,19 +61,5 @@ basic.forever(function on_forever() {
     strip.showColor(neopixel.colors(NeoPixelColors.Blue))
     basic.pause(500)
     strip.showColor(neopixel.colors(NeoPixelColors.Violet))
-    basic.pause(500)
-})
-basic.forever(function on_forever2() {
-    Forward()
-    basic.pause(500)
-    Stop()
-    basic.pause(500)
-    TurnLeft()
-    basic.pause(500)
-    Forward()
-    basic.pause(500)
-    Stop()
-    basic.pause(500)
-    Back()
     basic.pause(500)
 })
