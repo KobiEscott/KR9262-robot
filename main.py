@@ -3,6 +3,19 @@ strip.clear()
 PCA9685.init(67, 0)
 
 def on_forever():
+    PCA9685.set_led_duty_cycle(PCA9685.LEDNum.LED1, 0, 67)
+    PCA9685.set_led_duty_cycle(PCA9685.LEDNum.LED2, 100, 67)
+    PCA9685.set_led_duty_cycle(PCA9685.LEDNum.LED3, 0, 67)
+    PCA9685.set_led_duty_cycle(PCA9685.LEDNum.LED4, 100, 67)
+    basic.pause(500)
+    PCA9685.set_led_duty_cycle(PCA9685.LEDNum.LED1, 0, 67)
+    PCA9685.set_led_duty_cycle(PCA9685.LEDNum.LED2, 100, 67)
+    PCA9685.set_led_duty_cycle(PCA9685.LEDNum.LED3, 0, 67)
+    PCA9685.set_led_duty_cycle(PCA9685.LEDNum.LED4, 50, 67)
+    basic.pause(500)
+basic.forever(on_forever)
+
+def on_forever2():
     strip.show_color(neopixel.colors(NeoPixelColors.RED))
     basic.pause(500)
     strip.show_color(neopixel.colors(NeoPixelColors.ORANGE))
@@ -14,18 +27,5 @@ def on_forever():
     strip.show_color(neopixel.colors(NeoPixelColors.BLUE))
     basic.pause(500)
     strip.show_color(neopixel.colors(NeoPixelColors.VIOLET))
-    basic.pause(500)
-basic.forever(on_forever)
-
-def on_forever2():
-    PCA9685.set_led_duty_cycle(PCA9685.LEDNum.LED1, 0, 67)
-    PCA9685.set_led_duty_cycle(PCA9685.LEDNum.LED2, 100, 67)
-    PCA9685.set_led_duty_cycle(PCA9685.LEDNum.LED3, 0, 67)
-    PCA9685.set_led_duty_cycle(PCA9685.LEDNum.LED4, 100, 67)
-    basic.pause(500)
-    PCA9685.set_led_duty_cycle(PCA9685.LEDNum.LED1, 0, 67)
-    PCA9685.set_led_duty_cycle(PCA9685.LEDNum.LED2, 100, 67)
-    PCA9685.set_led_duty_cycle(PCA9685.LEDNum.LED3, 0, 67)
-    PCA9685.set_led_duty_cycle(PCA9685.LEDNum.LED4, 50, 67)
     basic.pause(500)
 basic.forever(on_forever2)
