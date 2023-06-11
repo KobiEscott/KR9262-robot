@@ -28,13 +28,6 @@ strip.clear()
 PCA9685.init(67, 0)
 
 def on_forever():
-    Forward()
-    basic.pause(500)
-    Stop()
-    basic.pause(500)
-basic.forever(on_forever)
-
-def on_forever2():
     strip.show_color(neopixel.colors(NeoPixelColors.RED))
     basic.pause(500)
     strip.show_color(neopixel.colors(NeoPixelColors.ORANGE))
@@ -46,5 +39,20 @@ def on_forever2():
     strip.show_color(neopixel.colors(NeoPixelColors.BLUE))
     basic.pause(500)
     strip.show_color(neopixel.colors(NeoPixelColors.VIOLET))
+    basic.pause(500)
+basic.forever(on_forever)
+
+def on_forever2():
+    Forward()
+    basic.pause(500)
+    Stop()
+    basic.pause(500)
+    TurnLeft()
+    basic.pause(500)
+    Forward()
+    basic.pause(500)
+    Stop()
+    basic.pause(500)
+    Back()
     basic.pause(500)
 basic.forever(on_forever2)
