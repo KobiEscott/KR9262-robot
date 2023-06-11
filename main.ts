@@ -1,7 +1,7 @@
 let strip = neopixel.create(DigitalPin.P5, 18, NeoPixelMode.RGB)
 strip.clear()
 PCA9685.init(67, 0)
-basic.forever(function () {
+basic.forever(function on_forever() {
     strip.showColor(neopixel.colors(NeoPixelColors.Red))
     basic.pause(500)
     strip.showColor(neopixel.colors(NeoPixelColors.Orange))
@@ -15,7 +15,7 @@ basic.forever(function () {
     strip.showColor(neopixel.colors(NeoPixelColors.Violet))
     basic.pause(500)
 })
-basic.forever(function () {
+basic.forever(function on_forever2() {
     PCA9685.setLedDutyCycle(PCA9685.LEDNum.LED1, 0, 67)
     PCA9685.setLedDutyCycle(PCA9685.LEDNum.LED2, 100, 67)
     PCA9685.setLedDutyCycle(PCA9685.LEDNum.LED3, 0, 67)
